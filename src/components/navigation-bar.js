@@ -4,11 +4,13 @@ import React from 'react';
 export default function NavigationBar(props) {
 
   const links = props.links.map((link, index) => {
-      return  <li key={index}>
-                <a href={link.href}>
-                  {link.text}
-                </a>
-              </li>
+      return (
+        <li key={index}>
+          <a href={link.href}>
+            {link.text}
+          </a>
+        </li>
+      );
   });
 
   return (
