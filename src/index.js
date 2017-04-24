@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Board from './components/board.js';
+import AddressBook from './components/address-book';
 import './index.css';
 
 ReactDOM.render(
-  <Board />,
+  <AddressBook />,
   document.getElementById('root')
 );
