@@ -9,11 +9,7 @@ export default class List extends React.Component {
     super(props);
     //setting the state and props for Card
     this.state = {
-      cards: [
-        {text: 'Example card 1'},
-        {text: 'Example card 2'},
-        {text: 'Example card 3'}
-      ]
+      cards: []
     };
     //I think this statement makes sure this refers to the instance of the class and not the local this for that function
     this.addCard = this.addCard.bind(this);

@@ -9,10 +9,7 @@ export default class Board extends React.Component {
     super(props);
 
     this.state = {
-      lists: [
-        {title: 'Example list 1'},
-        {title: 'Example list 2'}
-      ]
+      lists: []
     };
     this.addList = this.addList.bind(this);
   } //end of constructor

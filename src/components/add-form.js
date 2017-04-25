@@ -8,6 +8,7 @@ export default class AddForm extends React.Component {
     }
   }
   //the onAdd method is set by the parent component
+  //this method handles BOTH adding text to a card and adding a title to a list
   onSubmit(event) {
     event.preventDefault();
     const text = this.textInput.value.trim();
@@ -38,7 +39,7 @@ export default class AddForm extends React.Component {
       <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
         <input type="text" ref={input => this.textInput = input}/>
         <button>Add</button>
-        <button type="button" onClick{() => this.setEditing(false)}>
+        <button type="button" onClick={() => this.setEditing(false)}>
           Cancel
         </button>
       </form>
