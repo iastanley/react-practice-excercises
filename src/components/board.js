@@ -1,6 +1,7 @@
 import React from 'react';
 
 import List from './list';
+import AddForm from './add-form';
 
 //making board a stateful component
 export default class Board extends React.Component {
@@ -13,7 +14,14 @@ export default class Board extends React.Component {
         {title: 'Example list 2'}
       ]
     };
+    this.addList = this.addList.bind(this);
   } //end of constructor
+
+  addList(title) {
+    this.setState({
+      lists: [...this.state.lists, {title}]
+    });
+  }
 
   render() {
     //create array of List components with props set by this.state
@@ -26,6 +34,7 @@ export default class Board extends React.Component {
         <h2>{this.props.title}</h2>
         <div className="lists">
           {lists}
+          <AddForm type="list" onAdd={this.addList}/>
         </div>
       </div>
     );

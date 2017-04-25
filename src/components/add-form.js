@@ -28,7 +28,7 @@ export default class AddForm extends React.Component {
     if (!this.state.editing) {
       return (
         <div className="add-button" onClick={() => this.setEditing(true)}>
-          {/*The Board component will set type*/}
+          {/*The Board OR List component will set type*/}
           <a href="#">Add a {this.props.type}...</a>
         </div>
       );
