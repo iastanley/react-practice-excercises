@@ -7,6 +7,17 @@ export default class AddForm extends React.Component {
       editing: false
     }
   }
+  //the onAdd method is set by the parent component
+  onSubmit(event) {
+    event.preventDefault();
+    const text = this.textInput.value.trim();
+    if (text && this.props.onAdd) {
+      this.props.onAdd(text);
+    }
+    //I think this is to reset input field after submit
+    this.textInput.value = '';
+  }
+
   //method used to switch editing between true and false
   setEditing(editing) {
     this.setState({editing}); //shorthand for {editing: editing}
@@ -18,14 +29,14 @@ export default class AddForm extends React.Component {
       return (
         <div className="add-button" onClick={() => this.setEditing(true)}>
           {/*The Board component will set type*/}
-          <a href="#">Add a {this.props.type}&hellip;</a>
+          <a href="#">Add a {this.props.type}...</a>
         </div>
       );
     }
     //when editing is set to true show the form
     return (
-      <form className="card add-form">
-        <input type="text"/>
+      <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
+        <input type="text" ref={input => this.textInput = input}/>
         <button>Add</button>
         <button type="button" onClick{() => this.setEditing(false)}>
           Cancel
